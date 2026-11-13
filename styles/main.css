@@ -63,7 +63,6 @@ h1, h2, p { margin: 0; }
     grid-template-rows: auto auto 1fr;
     grid-template-areas: "import lab profile" "diag lab profile" "diag lab export";
   }
-  .card-lab { align-self: stretch; }
 }
 
 /* ---------- Cards ---------- */
@@ -162,7 +161,7 @@ pre {
 }
 
 @media (max-width: 520px) {
-  .topbar { height: auto; padding: 8px 12px; flex-direction: column; align-items: flex-start; }
+  .topbar { height: auto; padding: 8px 12px; flex-wrap: wrap; }
   .subtitle { display: none; }
   .grid { padding: 10px; gap: 10px; }
   .field-inline { grid-template-columns: 76px 1fr 44px; }

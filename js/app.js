@@ -235,10 +235,11 @@
     profile = result.profile;
     setControls(profile);
     refresh();
-    const what = result.kind === 'cube'
-      ? `LUT .cube ${result.fit.size}³ convertida em matriz (erro RMS ${result.fit.rms.toFixed(4).replace('.', ',')})`
-      : 'Perfil .json';
-    const lines = [`${what} importado${sourceName ? ` de "${sourceName}"` : ''} e salvo.`].concat(result.warnings);
+    const from = sourceName ? ` de "${sourceName}"` : '';
+    const first = result.kind === 'cube'
+      ? `LUT .cube ${result.fit.size}³ importada${from}, convertida em matriz (erro RMS ${result.fit.rms.toFixed(4).replace('.', ',')}) e salva.`
+      : `Perfil .json importado${from} e salvo.`;
+    const lines = [first].concat(result.warnings);
     showImportMessage(result.warnings.length ? 'warn' : 'ok', lines);
     status.textContent = 'Perfil importado aplicado. Mexer em tipo ou grau volta ao modelo.';
   }
